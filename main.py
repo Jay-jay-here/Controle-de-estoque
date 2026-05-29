@@ -35,6 +35,7 @@ while menu==True:
     print('lista de produtos (2)')
     print('carrinho (3) ')
     print("sair (4) ")
+    print('aperte enter duas vezes para voltar a esse menu inicial!!')
     print('-'*90)
     #menu inicial
 
@@ -72,7 +73,7 @@ while menu==True:
     #opcao 1
 
     #opcao 2
-    elif opcao=="2":
+    if opcao=="2":
       limpar_tela()
       print('-'*30)
       print('oque deseja fazer? ')
@@ -82,13 +83,15 @@ while menu==True:
       opcao2=input('')
       #opcao dentro da opcao 2 ver lista
     if opcao2=='1':
+        limpar_tela()
         print('aqui esta  a lista de produtos:')
         print('-'*90)   
         for item in lista_de_produtos:
             print(item)
         print('-'*90)
-        voltar=input('digite qualquer coisa para ir ao menu')
-
+        voltar=input('de enter duas vezes para voltar ao menu')
+        opcao2='0'
+        limpar_tela()
       #opcao dentro da opcao 2 ver lista  
       #---------------------------------
 
@@ -104,15 +107,20 @@ while menu==True:
       print('lista atual:')
       for item in lista_de_produtos:
         print(item)
+      opcao2='0'
     decicao1=input('')
+    
 
     if decicao1=='y':
+        limpar_tela()
         print('nomeie o produto a ser removido')
-        print(lista_de_produtos)
+        for item in lista_de_produtos:
+            print(item)
         tirar=input('')
         lista_de_produtos.remove(tirar)
         print('lista nova')
         print(lista_de_produtos)
+        decicao1='0'
 
       #---------------------------------
       #opcao dentro da opcao 2 ver lista  
@@ -125,6 +133,7 @@ while menu==True:
             for item in lista_de_produtos:
               print(item)
             voltar=input('')
+            opcao='0'
 
     elif opcao=='4':
             limpar_tela()
