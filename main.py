@@ -4,12 +4,15 @@ import os
 import pyautogui as pa
 import time
 #declaracao das variaveis globais
-opcao='0'
-opcao2='0'
-opcao2='0'
-decicao1='0'
-opcao='0'
+opcao=''
+opcao2=''
+opcao2=''
+decicao1=''
+opcao=''
+lista_de_carrinho=[]
 lista_de_produtos=['pipoca','arroz','feijao','macarrão']
+qnt_item=00
+voltar=""
 #declaracao das variaveis globais
 def limpar_tela():
     os.system('cls') if os.name=='nt' else 'clear'
@@ -125,17 +128,34 @@ while menu==True:
       #---------------------------------
       #opcao dentro da opcao 2 ver lista  
       
+      
     #opcao 3 
     #------------------------------------
     if opcao=='3':
-            limpar_tela()
-            print('escolha produtos para colocar no carrinho')
-            for item in lista_de_produtos:
-              print(item)
-            voltar=input('')
-            opcao='0'
+      limpar_tela()
+      print('quantos items quer colocar no carrinho?')
+      qnt_item=input()
+      limpar_tela
+      print('###lista de produtos###')
+      for item in lista_de_produtos:
+        print(item)
+      print('carrinho atual:')
+      for i in range(int(qnt_item)):
+        carrinho=input('')
+      if carrinho in lista_de_produtos:
+          lista_de_carrinho.append(carrinho)
+          lista_de_produtos.remove(carrinho)
+      else:
+          print('produto nao encontrado')
+      voltar=input('')
+      if i==qnt_item: 
+        print('lista final:')
+        print(lista_de_carrinho)
+      voltar==""
+      
+    opcao='0'
 
-    elif opcao=='4':
+    if opcao=='4':
             limpar_tela()
             print('Voce escolheu sair')
             break
